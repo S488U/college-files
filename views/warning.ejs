@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warning | SU Study Material</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        /* Ensure the body takes full height and centers the content */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .full-height {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container full-height">
+        <div class="text-center">
+            <h1>Warning</h1>
+            <p>If any students copied code in the exam by using my website, I am not responsible for that action. The whole responsibility will be on the student. Such actions will lead to malpractice and failure in the exam.</p>
+            <p>By SU Study Material.</p>
+            <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+            <a href="mailto:shahabassabbu12@gmail.com" class="btn mt-3">Contact Us</a>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

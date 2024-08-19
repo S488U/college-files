@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File: <%= filename %> | SU Study Material</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css" rel="stylesheet"> <!-- Highlight.js theme -->
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+        <h1 class="mt-5">Contents of <%= filename %></h1>
+        <div class="d-flex justify-content-between mb-3">
+            <a class="btn btn-primary" href="/">Back to main menu</a>
+            <button id="copyButton" class="btn btn-secondary">Copy code</button>
+        </div>
+        <pre><code id="fileContent" class="language-<%= extension %>"><%= content %></code></pre>
+    </div>
+    <%- include('partials/footer') %>
+    <script src="/js/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const content = document.getElementById('fileContent').innerText;
+            navigator.clipboard.writeText(content).then(function() {
+                alert('Content copied to clipboard');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        });
+    </script>
+</body>
+</html>
