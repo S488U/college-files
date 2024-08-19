@@ -13,7 +13,7 @@
 <body>
     <h2>Students Marks</h2>
     <?php
-        $sdt = "";
+        $std = "";
         
         $stdMarks = array(
             "Ramesh" => array("Java" => "88", "PHP" => "98", "Networking" => "78"),
@@ -22,7 +22,7 @@
         );
 
         foreach ($stdMarks as $std => $subjectArray) {
-            echo "Marks of $sdt:<br>";
+            echo "Marks of $std:<br>";
             foreach ($subjectArray as $subject => $marks) {
                 echo "$subject = $marks   ";
             }
@@ -30,5 +30,6 @@
         }
     ?>
 </body>
+
 
 </html>
