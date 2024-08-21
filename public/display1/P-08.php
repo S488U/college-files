@@ -35,7 +35,7 @@
             </tr>
             <tr>
                 <td>Gender</td>
-                <td> <input type="radio" name="gen" value="Male">Male <input type="radio" name="gen" value="Male">Female </td>
+                <td> <input type="radio" name="gen" value="Male">Male <input type="radio" name="gen" value="Female">Female </td>
             </tr>
             <tr>
                 <td>Hobbies</td>
@@ -60,18 +60,14 @@
             $dob = $_POST["dob"];
             $gen = $_POST["gen"];
             $hobbies = $_POST["hob"];
+            
             echo "<tr><td>Name:</td><td>$name</td></tr>";
             echo "<tr><td>Address:</td><td>$addr</td></tr>";
             echo "<tr><td>DOB:</td><td>$dob</td></tr>";
             echo "<tr><td>Gender:</td><td>$gen</td></tr>";
-            echo "<tr><td>Hobbies:</td><td>";
-            for ($i = 0; $i < sizeof($hobbies) - 1; $i++) {
-                echo $hobbies[$i] . ", ";
-            }
-            echo $hobbies[$i] . "</td></tr>";
+            echo "<tr><td>Hobbies:</td><td>" . implode(", ", $hobbies) . "</td></tr>";
         }        
         ?>
     </table>
 </body>
-
 </html>
