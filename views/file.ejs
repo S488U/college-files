@@ -6,7 +6,18 @@
     <title>File: <%= filename %> | SU Study Material</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css" rel="stylesheet"> <!-- Highlight.js theme -->
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/prism-theme.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/github.min.css" rel="stylesheet">
+    <style>
+        pre *, code * {
+            text-shadow: none !important;
+        }
+
+        .language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url  {
+            background-color: transparent !important;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/navbar') %>
@@ -16,11 +27,10 @@
             <a class="btn btn-primary" href="/">Back to main menu</a>
             <button id="copyButton" class="btn btn-secondary">Copy code</button>
         </div>
-        <pre><code id="fileContent" class="language-<%= extension %>"><%= content %></code></pre>
+        <pre><code id="fileContent" class="language-<%= extension %> match-braces no-whitespace-normalizatio line-numbers"><%= content %></code></pre>
     </div>
     <%- include('partials/footer') %>
-    <script src="/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script src="/js/prism.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
         document.getElementById('copyButton').addEventListener('click', function() {
