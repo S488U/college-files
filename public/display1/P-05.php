@@ -6,35 +6,29 @@
     <title>Program Five</title>
 </head>
 <body>
-    <?php
-        $noOfLines = "";
-        $symbol = "";
-    ?>
-    <h2>Pyramid</h2>
-    <form method="POST">
-        Enter the loop Number: 
-        <input type="number" name="line" value="<?php echo $noOfLines; ?>" required>
-        
-        Enter the Symbol: 
-        <input type="text" name="symbol" value="<?php echo $symbol; ?>" required>
-
-        <input type="reset" value="Clear">
-        <input type="submit" name="Submit" value="Submit">
+    <form action="" method="post">
+        <div>
+            Enter the loop number:
+            <input type="number" name="lines" value="<?php echo $_POST["lines"] ?? ""; ?>" id="">
+        </div>
+        <div>
+            Enter the symbol:
+            <input type="text" name="symbol" value="<?php echo $_POST["symbol"] ?? ""; ?>" id="">
+        </div>
+        <input type="submit" value="submit" name="submit">
     </form>
 
-    <?php
-        if(isset($_POST["Submit"])) {
-            $noOfLines = $_POST["line"];
-            $symbol = $_POST["symbol"];
+ <?php
+
+    if(isset($_POST['lines']) && isset($_POST['symbol'])){
+        $lines = $_POST['lines'];
+        $symbol = $_POST['symbol'];
+
+        for($i=0;$i<$lines; $i++){
+            echo str_repeat($symbol, $i + 1) . "<br>";
         }
-        if($noOfLines and $symbol) {
-            for($i=0;$i<$noOfLines;$i++){
-                for($j=0;$j<$i+1;$j++){
-                    echo "<b>$symbol</b>  ";
-                }
-                echo "<br>";
-            }
-        }
-    ?>
+    }
+
+?>
 </body>
 </html>
