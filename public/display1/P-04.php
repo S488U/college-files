@@ -33,7 +33,6 @@
         }
     }
     ?>
-</body>
     <h1>PHP Simple Calculator</h1>
     <form action="" method="post">
         <div>
@@ -54,4 +53,5 @@
         <input type="submit" value="*" name="operator">
         <input type="submit" value="/" name="operator">
     </form>
+</body>
 </html>
