@@ -18,6 +18,7 @@
         .language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url  {
             background-color: transparent !important;
         }
+
         @media screen and (max-width:600px) {
             pre *, code * {
                 font-size: 14px !important;
@@ -52,13 +53,22 @@
             setTimeout(function() {
                 button.innerText = 'Copy code';
             }, 2000);
-    
-            console.log('Content copied to clipboard');
         }, function(err) {
             console.error('Could not copy text: ', err);
         });
     });
 
+    function checkWindowSize() {
+        const codeElement = document.querySelector('.line-numbers');
+        if (window.innerWidth > 600) {
+            codeElement.classList.add('line-numbers');
+        } else {
+            codeElement.classList.remove('line-numbers');
+        }
+    }
+
+    checkWindowSize();
+    window.addEventListener('resize', checkWindowSize);
     </script>
 </body>
 </html>
