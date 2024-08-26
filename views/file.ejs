@@ -43,14 +43,22 @@
     <script src="/js/prism.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('copyButton').addEventListener('click', function() {
-            const content = document.getElementById('fileContent').innerText;
-            navigator.clipboard.writeText(content).then(function() {
-                console.log('Content copied to clipboard');
-            }, function(err) {
-                console.error('Could not copy text: ', err);
-            });
+       document.getElementById('copyButton').addEventListener('click', function() {
+        const button = this;
+        const content = document.getElementById('fileContent').innerText;
+        
+        navigator.clipboard.writeText(content).then(function() {
+            button.innerText = 'Copied!';
+            setTimeout(function() {
+                button.innerText = 'Copy code';
+            }, 2000);
+    
+            console.log('Content copied to clipboard');
+        }, function(err) {
+            console.error('Could not copy text: ', err);
         });
+    });
+
     </script>
 </body>
 </html>
